@@ -166,6 +166,9 @@ button:hover{
 .leaf{
     background-image:url('../images/leaf.jpg')
 }
+.bush{
+	background-image: url('../images/leaf.png');
+}
 .gold{
 	background-image: url('../assets/blocks/gold.jpg')
 }

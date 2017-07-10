@@ -3,6 +3,7 @@ var Mine = {};
 Mine.selectedTool = "";
 Mine.selectedBlock = "";
 
+// Create the game
 Mine.startGame = function(){
 	var game = $("#game");
 	var columns = 20;
@@ -17,16 +18,18 @@ Mine.startGame = function(){
 		for(var j=0; j<columns; j++){
 			var block =  this.linkArray[i][j] = $("<div/>");
 			block.addClass("block sky");
-			row.append(block);	
+			row.append(block);
+			block.on("click", function(){
+				removeBlock();
+			});
 		}
 		game.append(row);
 	}
 
-	//var t = Math.floor(Math.random()*18)+2;
 	//Drawing the ground
 	var itree = [];
 	var irock = [];
- 	for(var i=0; i<20; i++){
+ 	for(var i=0; i<columns; i++){
  		var dirt = Math.floor(Math.random()*4)+2;
  		for(var j=rows-1; j>=rows-dirt; j--){
  			if(j==rows-dirt){
@@ -58,32 +61,21 @@ Mine.startGame = function(){
  		this.linkArray[i][irock[rockLocation]].removeClass("sky").addClass("rock");
  	}
 
-
- /*
-	for(j=rows-1; j>=rows-dirt; j--){
-		if(j==rows-dirt){
-			this.linkArray[j][t].removeClass("sky").addClass("grass");
-		}else{
-			this.linkArray[j][t].removeClass("sky").addClass("dirt");
-		}
-		for(j=rows-dirt+1; j<rows-dirt+3; j++){
-			this.linkArray[j][t].removeClass("sky").addClass("tree");
-		}
-	}
-
-	 	
-	for(var i=t+1; i<columns; i++){
-		var dirt = Math.floor(Math.random()*4)+2;
-		for(j=rows-1; j>=rows-dirt; j--){
-			if(j==rows-dirt){
-				this.linkArray[j][i].removeClass("sky").addClass("grass");
-			}else{
-				this.linkArray[j][i].removeClass("sky").addClass("dirt");
-			}
-		}
-	}*/
-
 }
+// Create the toolbar
+Mine.tools = function(name, image, associate){
+	this.name = name;
+	this.image = image;
+	this.associate = [];
+	for(i=0; i<associate.length; i++){
+		this.associate[i] = associate[i];
+	}
+	this.element = $("<div/>"); 
+}
+
+var axe = new Mine.tools("axe", "./images/axe.png", ['tree']);
+var pickaxe = new Mine.tools("pickaxe", "./images/pickaxe.png", ['tree']);
+var shovel = new Mine.tools("shovel", "./images/shovel.png", ['tree']);
 
  Mine.startGame();
 

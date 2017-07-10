@@ -148,37 +148,43 @@ button:hover{
 }
 
 .dirt{
-    background-image: url('../images/dirt.png')
+    background-image: url('../images/dirt.png');
+    background-size:cover;
 }
 
 .grass{
-    background-image: url('../images/grass.png')
+    background-image: url('../images/grass.png');
+    background-size: cover;
 }
 
 .rock{
-    background-image:url('../images/rock.png')
+    background-image:url('../images/rock.png');
+    background-size: cover;
 }
 
 .tree{
-    background-image:url('../images/tree.png')
+    background-image:url('../images/tree.png');
+    background-size: cover;
 }
 
 .leaf{
-    background-image:url('../images/leaf.jpg')
+    background-image:url('../images/leaf.jpg');
+    background-size: cover;
 }
 .bush{
 	background-image: url('../images/leaf.png');
+	background-size: cover;
 }
 .gold{
-	background-image: url('../assets/blocks/gold.jpg')
+	background-image: url('../assets/blocks/gold.jpg');
 }
 .dynamite{
-		background-image: url('../assets/blocks/dynamite.gif')
+		background-image: url('../assets/blocks/dynamite.gif');
 
 }
 .block{
 	margin:0;
-	border: 1px solid black;
+	/* border: 1px solid black;*/
 	width: 50px;
 	height: 50px;
 	display: inline-block;

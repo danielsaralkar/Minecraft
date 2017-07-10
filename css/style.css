@@ -1,0 +1,175 @@
+body{
+	margin: 0;
+	font-family: 'Source Code Pro', monospace;
+}
+
+#goldLeft{
+    float:right;
+    margin-right:60px;
+    margin-top:30px;
+}
+
+#instButt{
+    float:right;
+    font-family: 'Source Code Pro', monospace;
+    font-size:20px;
+    cursor:pointer;
+}
+
+#instDiv{
+    font-size:15px;
+    font-family: 'Source Code Pro', monospace;
+    background-color: rgba(255, 246, 237,.8);
+    height:300px;
+    line-height:20px;
+    top:30%;
+    left:34%;
+}
+
+.banner li{
+    text-align:left;
+    margin-top:5px;
+}
+
+#loadInst{
+    font-size:20px;
+}
+
+.inst{
+    font-family: 'Source Code Pro', monospace;
+    font-size:25px;
+    color: DarkGoldenRod;
+    cursor: pointer;
+    margin-Left:20px;
+    margin-top:40px;
+}
+
+.bannerTool{
+    margin:auto;
+    display:inline-block;
+}
+
+.bannerTool.tool{
+    margin-top:5%;
+    border:5px solid black;
+    height:160px;
+    width:200px;
+    border-radius:40px;
+    background-color:lightblue;
+}
+
+.minecraftBanner{
+    width:100%;
+    font-family: 'Source Code Pro', monospace;
+    text-align:center;
+    font-size:50px;
+    color: #ffc106;
+}
+
+#gameOver{
+    height:200px;
+    width:300px;
+    font-size:60px;
+    color:yellow;
+}
+
+.banner{
+    position:absolute;
+    left:33%;
+    top:10%;
+    width:500px;
+    height:500px;
+    display:none;
+    background-color:rgba(1,1,1,0.8);
+    text-align:center;
+    padding-top:20px;
+}
+.landingpage{
+    text-align: center;
+
+}
+.landingpage img{
+    width: 1000px;
+   	animation: key 0.5s infinite
+}
+@keyframes key{
+	   0%   {transform: translateX(2px);}
+	   15%   {transform: translateX(-2px);}
+	   50%   {transform: translateX(2px);}
+	   90%   {transform: translateX(-2px);}
+	   100%   {transform: translateX(2px);}  
+}
+button{
+	font-size:32px;
+    font-family: 'Source Code Pro', monospace;
+    padding:20px 30px;
+    border:none;
+    transition: transform 0.5s ease;
+    background: none;
+}
+button:hover{
+		color: DarkGoldenRod;
+}
+
+#newGameAndLevel{
+    height:auto;
+    width:300px;
+}
+
+#newGame{
+	display: none;
+}
+
+#container{
+    margin-top:1%;
+    width:auto;
+    height:auto;
+	margin: 0 auto;
+	margin-top:1%;
+	width:1300px;
+	height:auto;
+	text-align: center;
+}
+/**GAME BOARD CSS**/
+
+#game{
+
+    display:inline-block;
+    line-height: 0;
+    vertical-align:top;
+}
+
+.cloud{
+    background:white;
+}
+
+.sky{
+    background:lightblue;
+}
+
+.dirt{
+    background-image: url('../images/dirt.png')
+}
+
+.grass{
+    background-image: url('../images/grass.png')
+}
+
+.rock{
+    background-image:url('../images/rock.png')
+}
+
+.tree{
+    background-image:url('../images/tree.png')
+}
+
+.leaf{
+    background-image:url('../images/leaf.jpg')
+}
+.gold{
+	background-image: url('../assets/blocks/gold.jpg')
+}
+.dynamite{
+		background-image: url('../assets/blocks/dynamite.gif')
+
+}

@@ -20,15 +20,16 @@ Mine.startGame = function(){
 			block.addClass("block sky");
 			row.append(block);
 			block.on("click", function(){
-				removeBlock();
+				Mine.removeBlock();
 			});
 		}
 		game.append(row);
-	}
+	}	
 
 	//Drawing the ground
 	var itree = [];
 	var irock = [];
+	var icloud = [];
  	for(var i=0; i<columns; i++){
  		var dirt = Math.floor(Math.random()*4)+2;
  		for(var j=rows-1; j>=rows-dirt; j--){
@@ -46,7 +47,7 @@ Mine.startGame = function(){
  		}
  	}
  	//Drawing the tree
- 	var treeLocation = Math.floor(Math.random() * (itree.length-3)) + 1 ;
+ 	var treeLocation = Math.floor(Math.random() * (itree.length-3)) + 1;
  	for(var i=6; i>4; i--){
  		this.linkArray[i][itree[treeLocation]].removeClass("sky").addClass("tree");
  	}
@@ -56,11 +57,23 @@ Mine.startGame = function(){
  	}
 
  	//Drawing the rock
- 	var rockLocation = Math.floor(Math.random() * (irock.length-3)) + 1 ;
+ 	var rockLocation = Math.floor(Math.random() * (irock.length-3)) + 1;
  	for(var i=9; i>7; i--){
  		this.linkArray[i][irock[rockLocation]].removeClass("sky").addClass("rock");
  	}
 
+ 	//Drawing the cloud
+ 	var cloudLocation = Math.floor(Math.random() * (icloud.length-3)) + 1;
+ 	for(var i=2; i>1; i--){
+ 		for(var j=itree[treeLocation]+3; j<itree[treeLocation]+6; j++){
+ 			this.linkArray[i][j].removeClass("sky").addClass("cloud");
+ 		}
+ 	}
+ 	for(var i=3; i>2; i--){
+ 		for(var j=itree[treeLocation]+4; j<itree[treeLocation]+7; j++){
+ 			this.linkArray[i][j].removeClass("sky").addClass("cloud");
+ 		}
+ 	}	
 }
 // Create the toolbar
 Mine.tools = function(name, image, associate){
@@ -71,11 +84,42 @@ Mine.tools = function(name, image, associate){
 		this.associate[i] = associate[i];
 	}
 	this.element = $("<div/>"); 
+	this.element.addClass(this.name)
+	var self = this;
+	this.element.on("click", function(){
+		Mine.selectedTool = self;
+		//console.log(Mine.selectedTool);
+	});
+	this.element.css({"background-image":"url("+this.image+")", "width":"60px", "height":"60px", "background-size":"cover"});
+	$("#toolbar").append(this.element);
 }
 
-var axe = new Mine.tools("axe", "./images/axe.png", ['tree']);
-var pickaxe = new Mine.tools("pickaxe", "./images/pickaxe.png", ['tree']);
-var shovel = new Mine.tools("shovel", "./images/shovel.png", ['tree']);
+var axe = new Mine.tools("axe", "./images/axe.png", ['tree', 'leaf']);
+var pickaxe = new Mine.tools("pickaxe", "./images/pickaxe.png", ['rock']);
+var shovel = new Mine.tools("shovel", "./images/shovel.png", ['grass', 'dirt']);
+
+// generate the dynamic of the tools objects 
+Mine.removeBlock = function(){
+	if(Mine.selectedTool != ""){
+		var ele = event.target;
+		var class1 = ele.classList;
+		for(var i=0; i<class1.length; i++){
+			for(var j=0; j<Mine.selectedTool.associate.length; j++){
+				if(class1[i] === Mine.selectedTool.associate[j]){
+					ele.classList.remove(class1[i]);
+					ele.classList.add("sky");
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
 
  Mine.startGame();
 

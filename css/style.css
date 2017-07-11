@@ -119,6 +119,9 @@ button:hover{
 #newGame{
 	display: none;
 }
+#toolbar{
+	display: inline-block;
+}
 
 #container{
     margin-top:1%;
@@ -137,6 +140,7 @@ button:hover{
     display:inline-block;
     line-height: 0;
     vertical-align:top;
+    border: 3px solid black;
 }
 
 .cloud{
@@ -184,8 +188,33 @@ button:hover{
 }
 .block{
 	margin:0;
-	/* border: 1px solid black;*/
 	width: 50px;
 	height: 50px;
 	display: inline-block;
+}
+.block:hover {
+	border: 1px solid white;
+	width: 48px;
+	height: 48px;
+}
+.axe{
+	background-color: lightgrey;
+	border:3px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 45px;
+}
+.pickaxe{
+	background-color: lightgrey;
+	border:3px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 45px;
+}
+.shovel{
+	background-color: lightgrey;
+	border:3px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 45px;
 }

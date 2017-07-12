@@ -218,3 +218,12 @@ button:hover{
 	cursor: pointer;
 	margin-top: 45px;
 }
+
+.tool.block{
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;
+}

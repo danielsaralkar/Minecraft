@@ -20,7 +20,7 @@ Mine.startGame = function(){
 			block.addClass("block sky");
 			row.append(block);
 			block.on("click", function(){
-				Mine.removeBlock();
+				Mine.toggleBlock();
 			});
 		}
 		game.append(row);
@@ -88,6 +88,7 @@ Mine.tools = function(name, image, associate){
 	var self = this;
 	this.element.on("click", function(){
 		Mine.selectedTool = self;
+		Mine.selectedBlock = "";
 		//console.log(Mine.selectedTool);
 	});
 	this.element.css({"background-image":"url("+this.image+")", "width":"60px", "height":"60px", "background-size":"cover"});
@@ -99,22 +100,64 @@ var pickaxe = new Mine.tools("pickaxe", "./images/pickaxe.png", ['rock']);
 var shovel = new Mine.tools("shovel", "./images/shovel.png", ['grass', 'dirt']);
 
 // generate the dynamic of the tools objects 
-Mine.removeBlock = function(){
+Mine.toggleBlock = function(){
 	if(Mine.selectedTool != ""){
 		var ele = event.target;
 		var class1 = ele.classList;
 		for(var i=0; i<class1.length; i++){
 			for(var j=0; j<Mine.selectedTool.associate.length; j++){
+				var toolClass = class1[i];
 				if(class1[i] === Mine.selectedTool.associate[j]){
 					ele.classList.remove(class1[i]);
 					ele.classList.add("sky");
+
+					var toolClass = "tool.block." + toolClass;
+					if($("." + toolClass).length){
+						var toolMapEl = $("." + toolClass);
+						var counter = toolMapEl.text();
+						if(counter == ""){
+							toolMapEl.text("2");
+						}
+						else{
+							counter = parseInt(counter);
+							counter++;
+							toolMapEl.text(counter);
+						}
+					}
+					else{
+						var toolmapel = $('<div/>');
+						toolmapel.addClass(toolClass.replace(/\./g," "));
+						toolmapel.on("click", function(){
+							Mine.selectBlock();
+						});
+						$("#toolbar").append(toolmapel);
+					}
+					//$(".")
 				}
+			}
+		}
+	}
+	else if(Mine.selectedBlock != ""){
+		var ele = event.target;
+		var class1 = ele.classList;
+		for(var i=0; i<class1.length; i++){
+			if(class1[i] == "sky"){
+				ele.classList.remove("sky");
+				ele.classList.add(Mine.selectedBlock);
 			}
 		}
 	}
 }
 
-
+Mine.selectBlock = function(){
+	var element = event.target;
+	var currClass = element.className;
+	currClass = currClass.replace("tool block ", "");
+	Mine.selectedBlock = currClass;
+	Mine.selectedTool = "";
+	console.log();
+	
+}
 
 
 

@@ -140,11 +140,31 @@ Mine.toggleBlock = function(){
 	else if(Mine.selectedBlock != ""){
 		var ele = event.target;
 		var class1 = ele.classList;
-		for(var i=0; i<class1.length; i++){
-			if(class1[i] == "sky"){
-				ele.classList.remove("sky");
-				ele.classList.add(Mine.selectedBlock);
+		var toolBlock = $(".tool.block." + Mine.selectedBlock);
+		console.log(toolBlock);
+		var counter = toolBlock.text();
+		if(toolBlock.length != 0){
+			for(var i=0; i<class1.length; i++){
+				if(class1[i] == "sky"){
+					ele.classList.remove("sky");
+					ele.classList.add(Mine.selectedBlock);
+					if(counter != ""){
+						counter = parseInt(counter);
+						counter--;
+						if(counter == 1){
+							counter = "";
+						}
+						toolBlock.text(counter);
+					}
+					else{
+						toolBlock.remove();
+					}
+					
+				}
 			}
+		}
+		else{
+			Mine.selectedBlock = "";
 		}
 	}
 }

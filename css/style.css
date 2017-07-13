@@ -63,6 +63,7 @@ button:hover{
 #newGame{
 	display: block;
     cursor: pointer;
+    margin-left: 176px;
 }
 #toolbar{
 	display: inline-block;
@@ -132,7 +133,6 @@ button:hover{
 	border:3px solid black;
 	border-radius: 10px;
 	cursor: pointer;
-	margin-top: 45px;
 }
 .pickaxe{
 	background-color:grey;
@@ -154,7 +154,7 @@ button:hover{
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
-    margin: 5px;
+    margin: 8px;
     display: block;
     border:3px solid black;
     border-radius: 5px;

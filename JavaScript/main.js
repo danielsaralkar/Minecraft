@@ -16,8 +16,9 @@ $("#instButt").click(function(){
 $(".enter").click(function(){
 	$("#container").css("display", "block");
 	$(".landingpage").css("display", "none");
+	var snd = new Audio("./sound effects/birds.mp3");
+	snd.play();
 });
-
 
 // Create the game
 Mine.startGame = function(){
@@ -150,7 +151,7 @@ Mine.toggleBlock = function(){
 						});
 						$("#toolbar").append(toolmapel);
 					}
-					//$(".")
+					
 				}
 			}
 		}
@@ -199,7 +200,7 @@ $(document).ready(function() {
 	$("#newGame").click(Mine.startGame);
 });
 
- Mine.startGame();
+Mine.startGame();
 
 
 

@@ -14,7 +14,7 @@ body{
     cursor: pointer;
 }
 #loadInst{
-    font-size: 40px;
+    font-size: 32px;
 }
 #instDiv{
     font-size:15px;
@@ -34,7 +34,6 @@ body{
 }
 .inst{
     font-family: 'Source Code Pro', monospace;
-    font-size:25px;
     color: DarkGoldenRod;
     cursor: pointer;
     margin-left:20px;
@@ -44,15 +43,7 @@ body{
     text-align: center;
 }
 .landingpage img{
-    width: 1000px;
-   	animation: key 0.5s infinite
-}
-@keyframes key{
-	   0%   {transform: translateX(2px);}
-	   15%   {transform: translateX(-2px);}
-	   50%   {transform: translateX(2px);}
-	   90%   {transform: translateX(-2px);}
-	   100%   {transform: translateX(2px);}  
+    width: 950px;
 }
 button{
 	font-size:32px;
@@ -94,6 +85,7 @@ button:hover{
     vertical-align:top;
     border: 3px solid black;
     border-radius: 5px;
+    cursor: crosshair;
 }
 #container{
     display: none;
@@ -121,18 +113,8 @@ button:hover{
     background-size: cover;
 }
 .leaf{
-    background-image:url('../images/leaf.jpg');
+    background-image:url('../images/leaf.gif');
     background-size: cover;
-}
-.bush{
-	background-image: url('../images/leaf.png');
-	background-size: cover;
-}
-.gold{
-	background-image: url('../assets/blocks/gold.jpg');
-}
-.dynamite{
-		background-image: url('../assets/blocks/dynamite.gif');
 }
 .block{
 	margin:0;
@@ -168,7 +150,7 @@ button:hover{
 }
 .tool.block{
     font-size: 30px;
-    color: white;
+    color: black;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;

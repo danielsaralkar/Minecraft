@@ -3,9 +3,27 @@ var Mine = {};
 Mine.selectedTool = "";
 Mine.selectedBlock = "";
 
+
+// generate the landingpage
+$("#loadInst").click(function(){
+	$("#instDiv").css("display", "block");
+});
+$("#instButt").click(function(){
+	$("#instDiv").css("display", "none");
+});
+
+//generate the game 
+$(".enter").click(function(){
+	$("#container").css("display", "block");
+	$(".landingpage").css("display", "none");
+});
+
+
 // Create the game
 Mine.startGame = function(){
+	$("div").remove(".tool.block");
 	var game = $("#game");
+	game.text("");
 	var columns = 20;
 	var rows = 12;
 	this.linkArray = [];
@@ -158,8 +176,7 @@ Mine.toggleBlock = function(){
 					}
 					else{
 						toolBlock.remove();
-					}
-					
+					}	
 				}
 			}
 		}
@@ -175,14 +192,12 @@ Mine.selectBlock = function(){
 	currClass = currClass.replace("tool block ", "");
 	Mine.selectedBlock = currClass;
 	Mine.selectedTool = "";
-	console.log();
-	
+	console.log();	
 }
 
-
-
-
-
+$(document).ready(function() {
+	$("#newGame").click(Mine.startGame);
+});
 
  Mine.startGame();
 

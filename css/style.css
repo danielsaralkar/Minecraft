@@ -1,92 +1,47 @@
 body{
 	margin: 0;
 	font-family: 'Source Code Pro', monospace;
+    background-color:#e3e0e0;
 }
-
-#goldLeft{
-    float:right;
-    margin-right:60px;
-    margin-top:30px;
-}
-
 #instButt{
     float:right;
     font-family: 'Source Code Pro', monospace;
     font-size:20px;
-    cursor:pointer;
+    cursor:pointer; 
 }
-
+.enter{
+    font-size: 70px;
+    cursor: pointer;
+}
+#loadInst{
+    font-size: 40px;
+}
 #instDiv{
     font-size:15px;
+    border:3px solid black;
+    border-radius: 20px; 
     font-family: 'Source Code Pro', monospace;
     background-color: rgba(255, 246, 237,.8);
-    height:300px;
+    height:115px;
     line-height:20px;
     top:30%;
     left:34%;
+    display:none;
 }
-
 .banner li{
     text-align:left;
     margin-top:5px;
 }
-
-#loadInst{
-    font-size:20px;
-}
-
 .inst{
     font-family: 'Source Code Pro', monospace;
     font-size:25px;
     color: DarkGoldenRod;
     cursor: pointer;
-    margin-Left:20px;
+    margin-left:20px;
     margin-top:40px;
-}
-
-.bannerTool{
-    margin:auto;
-    display:inline-block;
-}
-
-.bannerTool.tool{
-    margin-top:5%;
-    border:5px solid black;
-    height:160px;
-    width:200px;
-    border-radius:40px;
-    background-color:lightblue;
-}
-
-.minecraftBanner{
-    width:100%;
-    font-family: 'Source Code Pro', monospace;
-    text-align:center;
-    font-size:50px;
-    color: #ffc106;
-}
-
-#gameOver{
-    height:200px;
-    width:300px;
-    font-size:60px;
-    color:yellow;
-}
-
-.banner{
-    position:absolute;
-    left:33%;
-    top:10%;
-    width:500px;
-    height:500px;
-    display:none;
-    background-color:rgba(1,1,1,0.8);
-    text-align:center;
-    padding-top:20px;
 }
 .landingpage{
     text-align: center;
-
 }
 .landingpage img{
     width: 1000px;
@@ -102,7 +57,7 @@ body{
 button{
 	font-size:32px;
     font-family: 'Source Code Pro', monospace;
-    padding:20px 30px;
+    padding:10px 10px;
     border:none;
     transition: transform 0.5s ease;
     background: none;
@@ -110,19 +65,17 @@ button{
 button:hover{
 		color: DarkGoldenRod;
 }
-
 #newGameAndLevel{
     height:auto;
     width:300px;
 }
-
 #newGame{
-	display: none;
+	display: block;
+    cursor: pointer;
 }
 #toolbar{
 	display: inline-block;
 }
-
 #container{
     margin-top:1%;
     width:auto;
@@ -136,41 +89,37 @@ button:hover{
 /**GAME BOARD CSS**/
 
 #game{
-
     display:inline-block;
     line-height: 0;
     vertical-align:top;
     border: 3px solid black;
+    border-radius: 5px;
 }
-
+#container{
+    display: none;
+}
 .cloud{
     background:white;
 }
-
 .sky{
     background:lightblue;
 }
-
 .dirt{
     background-image: url('../images/dirt.png');
     background-size:cover;
 }
-
 .grass{
     background-image: url('../images/grass.png');
     background-size: cover;
 }
-
 .rock{
     background-image:url('../images/rock.png');
     background-size: cover;
 }
-
 .tree{
     background-image:url('../images/tree.png');
     background-size: cover;
 }
-
 .leaf{
     background-image:url('../images/leaf.jpg');
     background-size: cover;
@@ -184,7 +133,6 @@ button:hover{
 }
 .dynamite{
 		background-image: url('../assets/blocks/dynamite.gif');
-
 }
 .block{
 	margin:0;
@@ -198,27 +146,26 @@ button:hover{
 	height: 48px;
 }
 .axe{
-	background-color: lightgrey;
+	background-color:grey;
 	border:3px solid black;
 	border-radius: 10px;
 	cursor: pointer;
 	margin-top: 45px;
 }
 .pickaxe{
-	background-color: lightgrey;
+	background-color:grey;
 	border:3px solid black;
 	border-radius: 10px;
 	cursor: pointer;
 	margin-top: 45px;
 }
 .shovel{
-	background-color: lightgrey;
+	background-color:grey;
 	border:3px solid black;
 	border-radius: 10px;
 	cursor: pointer;
 	margin-top: 45px;
 }
-
 .tool.block{
     font-size: 30px;
     color: white;
@@ -226,4 +173,7 @@ button:hover{
     text-align: center;
     vertical-align: middle;
     margin: 5px;
+    display: block;
+    border:3px solid black;
+    border-radius: 5px;
 }

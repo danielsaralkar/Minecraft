@@ -16,8 +16,8 @@ $("#instButt").click(function(){
 $(".enter").click(function(){
 	$("#container").css("display", "block");
 	$(".landingpage").css("display", "none");
-	var snd = new Audio("./sound effects/birds.mp3");
-	snd.play();
+	//var snd = new Audio("./sound effects/birds.mp3");
+	//snd.play();
 });
 
 // Create the game
@@ -66,7 +66,7 @@ Mine.startGame = function(){
  		}
  	}
  	//Drawing the tree
- 	var treeLocation = Math.floor(Math.random() * (itree.length-3)) + 1;
+ 	var treeLocation = Math.floor(Math.random() * (itree.length-2)) + 1;
  	for(var i=6; i>4; i--){
  		this.linkArray[i][itree[treeLocation]].removeClass("sky").addClass("tree");
  	}
@@ -76,23 +76,38 @@ Mine.startGame = function(){
  	}
 
  	//Drawing the rock
- 	var rockLocation = Math.floor(Math.random() * (irock.length-3)) + 1;
+ 	var rockLocation = Math.floor(Math.random() * (irock.length-2)) + 1;
  	for(var i=9; i>7; i--){
  		this.linkArray[i][irock[rockLocation]].removeClass("sky").addClass("rock");
  	}
 
  	//Drawing the cloud
- 	var cloudLocation = Math.floor(Math.random() * (icloud.length-3)) + 1;
- 	for(var i=2; i>1; i--){
- 		for(var j=itree[treeLocation]+3; j<itree[treeLocation]+6; j++){
- 			this.linkArray[i][j].removeClass("sky").addClass("cloud");
- 		}
- 	}
- 	for(var i=3; i>2; i--){
- 		for(var j=itree[treeLocation]+4; j<itree[treeLocation]+7; j++){
- 			this.linkArray[i][j].removeClass("sky").addClass("cloud");
- 		}
- 	}	
+	 //var cloudLocation = Math.floor(Math.random() * (icloud.length-2)) + 1;
+	 console.log(itree[treeLocation]);
+	if(itree[treeLocation] > 10){
+		for(var i=2; i>1; i--){
+			for(var j=itree[treeLocation]-7; j<itree[treeLocation]-4; j++){
+				this.linkArray[i][j].removeClass("sky").addClass("cloud");
+			}
+		}
+		for(var i=3; i>2; i--){
+			for(var j=itree[treeLocation]-6; j<itree[treeLocation]-3; j++){
+				this.linkArray[i][j].removeClass("sky").addClass("cloud");
+			}
+		}
+	}
+	else{
+		for(var i=2; i>1; i--){
+			for(var j=itree[treeLocation]+3; j<itree[treeLocation]+6; j++){
+				this.linkArray[i][j].removeClass("sky").addClass("cloud");
+			}
+		}
+		for(var i=3; i>2; i--){
+			for(var j=itree[treeLocation]+4; j<itree[treeLocation]+7; j++){
+				this.linkArray[i][j].removeClass("sky").addClass("cloud");
+			}
+		}	
+	}
 }
 // Create the toolbar
 Mine.tools = function(name, image, associate){
@@ -108,7 +123,8 @@ Mine.tools = function(name, image, associate){
 	this.element.on("click", function(){
 		Mine.selectedTool = self;
 		Mine.selectedBlock = "";
-		//console.log(Mine.selectedTool);
+		console.log(Mine.selectedTool.image);
+		$('#game').css("cursor", "url(" + Mine.selectedTool.image + "), auto");
 	});
 	this.element.css({"background-image":"url("+this.image+")", "width":"60px", "height":"60px", "background-size":"cover"});
 	$("#toolbar").append(this.element);
@@ -177,12 +193,14 @@ Mine.toggleBlock = function(){
 					}
 					else{
 						toolBlock.remove();
+						$('#game').css("cursor", "auto");
 					}	
 				}
 			}
 		}
 		else{
 			Mine.selectedBlock = "";
+			
 		}
 	}
 }
@@ -193,6 +211,12 @@ Mine.selectBlock = function(){
 	currClass = currClass.replace("tool block ", "");
 	Mine.selectedBlock = currClass;
 	Mine.selectedTool = "";
+	if(currClass === "leaf"){
+		$('#game').css("cursor", "url(./images/" + currClass + ".gif), auto");
+	}
+	else{
+		$('#game').css("cursor", "url(./images/" + currClass + ".png), auto");
+	}
 	console.log();	
 }
 
